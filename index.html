@@ -129,7 +129,7 @@
 //				});
 //			} else {
 				// This loads the transpiled version for now. When EcmaScript 6 modules work on recent browsers without special settings, should switch to real modules (be it dynamic or static)
-				LazyLoad.js(["/apps/bimserverjavascriptapi/bimserverapitranspiled.js"], function(){
+				LazyLoad.js(["../bimserverjavascriptapi/bimserverapitranspiled.js"], function(){
 					window.BimServerClient = bimserverapi.default;
 					window.BimServerApiPromise = bimserverapi.BimServerApiPromise;
 					

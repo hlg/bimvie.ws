@@ -159,7 +159,7 @@ function Query2(cd, parent) {
 			query: {
 				type: {
 					name: "IfcWall",
-					includeAllSubtypes: true
+					includeAllSubTypes: true
 				},
 				properties: {
 					IsExternal: true
@@ -171,7 +171,7 @@ function Query2(cd, parent) {
 			query: {
 				type: {
 					name: "IfcProduct",	
-					includeAllSubtypes: true
+					includeAllSubTypes: true
 				},
 				classifications: [
 					"57.2"
@@ -183,7 +183,7 @@ function Query2(cd, parent) {
 			query: {
 				type: {
 					name: "IfcWall",
-					includeAllSubtypes: true
+					includeAllSubTypes: true
 				},
 				properties: {
 					ThermalTransmittance: {
@@ -223,20 +223,20 @@ function Query2(cd, parent) {
 	o.queriesIfc4 = {
 		AllObjects: {
 			description: "AllObjects", query: {
-			type: { name: "IfcProduct", includeAllSubtypes: true }
+			type: { name: "IfcProduct", includeAllSubTypes: true }
 		}},
 		AllWalls: {
 			description: "AllWalls", query: {
-			type: { name: "IfcWall", includeAllSubtypes: true }
+			type: { name: "IfcWall", includeAllSubTypes: true }
 		}},
 		AllWallsIncludingDecomposition: {
 			description: "AllWallsIncludingDecomposition", query: {
-			type: { name: "IfcWall", includeAllSubtypes: true },
+			type: { name: "IfcWall", includeAllSubTypes: true },
 			includes: ["ifc4stdlib:ContainedInStructure", "ifc4stdlib:OwnerHistory", "ifc4stdlib:Representation", "ifc4stdlib:ObjectPlacement"]
 		}},
 		AllWallsIncludingWindowsAndDoors: {
 			description: "AllWallsIncludingWindowsAndDoors", query: {
-			type: { name: "IfcWall", includeAllSubtypes: true },
+			type: { name: "IfcWall", includeAllSubTypes: true },
 			include: {
 				type: "IfcWall",
 				field: "HasOpenings",
@@ -256,7 +256,7 @@ function Query2(cd, parent) {
 		}},
 		AllWallsIncludingWindows: {
 			description: "AllWallsIncludingWindows", query: {
-			type: { name: "IfcWall", includeAllSubtypes: true },
+			type: { name: "IfcWall", includeAllSubTypes: true },
 			include: {
 				type: "IfcWall",
 				field: "HasOpenings",
@@ -277,13 +277,14 @@ function Query2(cd, parent) {
 		}},
 		AllWallsAndSlabs: {
 			description: "AllWallsAndSlabs", query: {
-			types: [{name: "IfcWall"}, {name: "IfcSlab"}],
-			includeAllSubtypes: true
+			types: [
+				{name: "IfcWall", includeAllSubTypes: true},
+				{name: "IfcSlab", includeAllSubTypes: true}
+			]
 		}},
 		SpecificWallsByGuid: {
 			description: "SpecificWallsByGuid", query: {
-			type: {name: "IfcWall"},
-			includeAllSubtypes: true,
+			type: {name: "IfcWall", includeAllSubTypes: true},
 			guids: ["2udBPbKibCZ8zbfpJmtDTM", "2V1MCFZRf1GA2ZyRufjYwX", "2oOoWKmmfChQTLCBzuB3$b"]
 		}},
 		SpecificBuildingStoreyIncContains: {
@@ -301,16 +302,14 @@ function Query2(cd, parent) {
 		}},
 		ExternalWalls: {
 			description: "ExternalWalls", query: {
-			type: {name: "IfcWall"},
-			includeAllSubtypes: true,
+			type: {name: "IfcWall", includeAllSubTypes: true},
 			properties: {
 				IsExternal: true
 			}
 		}},
 		ThermalTransmittance: {
 			description: "ThermalTransmittance", query: {
-			type: {name: "IfcWall"},
-			includeAllSubtypes: true,
+			type: {name: "IfcWall", includeAllSubTypes: true},
 			properties: {
 				ThermalTransmittance: {
 					comparator: ">",
