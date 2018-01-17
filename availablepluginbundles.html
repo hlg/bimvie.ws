@@ -130,7 +130,11 @@ function AvailablePluginBundles(main, serverSettings, cd) {
 	
 	cd.find(".installBtn").click(function(){
 		if (cd.find(".urlInput").val() != null && cd.find(".urlInput").val() != "") {
-			Global.bimServerApi.callWithFullIndication("PluginInterface", "installPluginBundleFromUrl", {url: cd.find(".urlInput").val()}, function(){
+			Global.bimServerApi.callWithFullIndication("PluginInterface", "installPluginBundleFromUrl", {
+				url: cd.find(".urlInput").val(), 
+				installAllPluginsForAllUsers: true,
+				installAllPluginsForNewUsers: true
+			}, function(){
 				
 			});
 		} else {
